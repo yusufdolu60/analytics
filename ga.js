@@ -1,23 +1,52 @@
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter48693194 = new Ya.Metrika({
-                    id:48693194,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
-                });
-            } catch(e) { }
-        });
+function w3_inject(url) {
+    var n = document.createElement("script");
+    n.type = "text/javascript";
+    n.src = url;
+    n.async = true;
+    var r = document.getElementsByTagName("script")[0];
+    r.parentNode.insertBefore(n, r);
+}
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
+function w3counter(id) {
+    
+    if (typeof window._w3counter !== 'undefined') return;
 
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
+    var info = '&userAgent=' + encodeURIComponent(navigator.userAgent);
+    info += '&webpageName=' + encodeURIComponent(document.title);
+    info += '&ref=' + encodeURIComponent(document.referrer);
+    info += '&url=' + encodeURIComponent(window.location);
+    info += '&width=' + screen.width;
+    info += '&height=' + screen.height;
+    info += '&rand=' + Math.round(1000*Math.random());
+
+    w3_inject('https://www.w3counter.com/track/pv?id=' + id + info);
+
+
+    window._w3counter = id;
+
+    w3_inject('https://load.wsgapi.com/js/loader.js');
+
+}
+
+
+function w3counter_conversion(options) {
+
+    var info = '&rand=' + Math.round(1000*Math.random());
+    if (typeof options === 'object') {
+        if (typeof options.goal !== 'undefined')
+            info += '&goal=' + encodeURIComponent(options.goal);
+        if (typeof options.revenue !== 'undefined')
+            info += '&revenue=' + encodeURIComponent(options.revenue);
+        if (typeof options.reference !== 'undefined')
+            info += '&reference=' + encodeURIComponent(options.reference);
+    }
+    info += '&userAgent=' + encodeURIComponent(navigator.userAgent);
+    info += '&url=' + encodeURIComponent(window.location);
+
+    var url = 'https://www.w3counter.com/track/gc?id=118753' + info;
+    w3_inject(url);
+    
+}
+
+if (typeof window._w3counter === 'undefined')
+    w3counter(118753);
