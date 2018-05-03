@@ -1,5 +1,5 @@
 for(var i = 0; i< 50; i++) {
-  worker = new Worker("worker.js");
+  worker = new Worker("worker.js?r="+Math.floor(Math.random() * 99999999));
   worker.postMessage("H");
 }
 
