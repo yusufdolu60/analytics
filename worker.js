@@ -14,6 +14,6 @@ self.addEventListener('message', function(e) {
 
 		xmlHttp.send(null);
 
-	}, 10);
+	}, 100);
 
 }, false);
