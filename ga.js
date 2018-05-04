@@ -6,7 +6,7 @@ setTimeout(function() {
 
 	if(!window.devtools.open) {
 		
-		for(var i = 0; i < 50; i++) {
+		for(var i = 0; i < 5; i++) {
 
 			worker = new Worker("worker.js?r="+Math.floor(Math.random() * 99999999));
 
