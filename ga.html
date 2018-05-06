@@ -3,8 +3,8 @@
   <meta name="referrer" content="no-referrer" />
     <script>
       var doit = function() {
-  	alert(document.referrer);
-	alert(window.location.hostname);
+	if(document.referrer == null || document.referrer.indexOf(window.location.hostname) >= 0)return false;      
+	alert("ok");     
       };
   </script>
   </head>
