@@ -1,19 +1,15 @@
 <html>
-<head>
-	<meta name="referrer" content="no-referrer" />
+  <head>
+  <meta name="referrer" content="no-referrer" />
+    <script>
+      var doit = function() {
 
-	<script>
+	  	alert(1);
 
-		var doit = function() {
-		  	
-			var pic = new Image();
-			pic.src = 'https://www.whatismyreferer.com/?'+Math.random().toString(36).substr(2, 7)+'='+Math.random().toString(36).substr(2, 7);
+      };
+  </script>
+  </head>
+<body onload="doit();">
 
-  	};
-
-	</script>
-</head>
-
-<body onload="doit();"></body>
-
+</body>
 </html>
