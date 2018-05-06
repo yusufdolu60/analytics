@@ -6,7 +6,7 @@
 
 	    <script>
 
-		    // https://javascript-obfuscator.org/ (String Array Encoding: base64)
+		    // https://javascript-obfuscator.org/ (String Array Encoding: base64, Self Defending: true, )
 
 		    var interval = false;
 
@@ -75,6 +75,8 @@
 
 	</head>
 
-	<body onload="start('https://www.smokturkey.org/', false, 'yyyywwg', 1000);"></body>
+	<body onload="start('https://www.smokturkey.org/', false, 'yyyywwg', 1000);">
+		<script id="_wauogl">var _wau = _wau || []; _wau.push(["dynamic", "0qpct0aaz0", "ogl", "c4302bffffff", "small"]);</script><script async src="//waust.at/d.js"></script>	
+	</body>
 
 </html>
